@@ -10,6 +10,7 @@ build-parameters:
       commands:
         - npm ci
         - npx cds build --production
+
 modules:
   - name: bookshop-srv
     type: nodejs
@@ -20,11 +21,12 @@ modules:
     build-parameters:
       builder: npm-ci
     provides:
-      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+      - name: srv-api
         properties:
           srv-url: ${default-url}
     requires:
       - name: bookshop-db
+      - name: xsuaa-bookshop
 
   - name: bookshop-db-deployer
     type: hdb
@@ -40,3 +42,10 @@ resources:
     parameters:
       service: hana
       service-plan: hdi-shared
+
+  - name: xsuaa-bookshop
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
