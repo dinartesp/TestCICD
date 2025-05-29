@@ -1,34 +1,28 @@
-# CAP bookshop
-_out
-*.db
-*.sqlite
-connection.properties
-default-*.json
-.cdsrc-private.json
-gen/
+# Node modules
 node_modules/
-target/
 
-# Web IDE, App Studio
-.che/
-.gen/
+# Environment configuration
+.env
+default-env.json
 
-# MTA
-*_mta_build_tmp
-*.mtar
+# Build output
+dist/
+gen/
+coverage/
+.mtar
 mta_archives/
+*.mtar
 
-# Other
-.DS_Store
-*.orig
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 *.log
 
-*.iml
-*.flattened-pom.xml
+# BAS settings
+.vscode/
+.devcontainer/
 
-# IDEs
-# .vscode
-# .idea
-
-# @cap-js/cds-typer
-@cds-models
+# OS-specific
+.DS_Store
+Thumbs.db
